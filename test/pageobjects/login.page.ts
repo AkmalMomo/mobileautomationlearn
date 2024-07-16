@@ -1,16 +1,18 @@
 import {$} from '@wdio/globals'
-import { ChainablePromiseElement } from 'webdriverio';
+
 
 
 class LoginPage{
     //Locators
-    get loginButton(): ChainablePromiseElement<WebdriverIO.Element>{
-        return $('~Login');
-    }
+    async getloginButton(){
+        const loginButton = await $('~Login');
+        return loginButton;
+        }
 
-    get createAccount(): ChainablePromiseElement<WebdriverIO.Element>{
-        return $('~Create Account');
-    }
+    // async getcreateAccount(): Promise<ChainablePromiseElement<WebdriverIO.Element>>{
+    // const createAccount = await $('~Create Account');
+    // return createAccount;
+    // }
 }
 
 export default new LoginPage();
