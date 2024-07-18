@@ -1,4 +1,7 @@
 import type { Options } from "@wdio/types";
+import * as dotenv from "dotenv";
+
+dotenv.config();
 export const config: Options.Testrunner = {
   //
   // ====================
@@ -30,8 +33,10 @@ export const config: Options.Testrunner = {
   // The path of the spec files will be resolved relative from the directory of
   // of the config file unless it's absolute.
   //
-
-  specs: ["./test/specs/**/*.ts"],
+  specs:[
+    [ './test/specs/mims.spec.ts',
+      './test/specs/login.spec.ts']
+  ],
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -52,7 +57,7 @@ export const config: Options.Testrunner = {
   // and 30 processes will get spawned. The property handles how many capabilities
   // from the same test should run tests.
   //
-  maxInstances: 10,
+  maxInstances: 1,
   //
   // If you have trouble getting all important capabilities together, check out the
   // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -98,7 +103,7 @@ export const config: Options.Testrunner = {
   //
   // If you only want to run your tests until a specific amount of tests have failed use
   // bail (default is 0 - don't bail, run all tests).
-  bail: 0,
+  bail: 1,
   //
   // Set a base URL in order to shorten url command calls. If your `url` parameter starts
   // with `/`, the base url gets prepended, not including the path portion of your baseUrl.

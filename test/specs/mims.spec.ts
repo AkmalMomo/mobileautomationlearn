@@ -1,34 +1,52 @@
-import LoginPage from "../pageobjects/login.page.ts";
+import LandingPage from "../pageobjects/landing.page.ts";
 
-describe("Open eMIMS Plus Mobile App", () => {
-  let loginButton: any;
+describe("Open eMIMS Plus Mobile App and go to Landing Page", () => {
+	let loginButton: any;
+	let appLogo: any;
+	let createAccountButton: any;
 
-  before(async () => {
-    // Ensure the app is opened and the login button is located before running tests
-    loginButton = await LoginPage.getloginButton();
-  });
+	// Assigning locators to varaibles
+	before(async () => {
+		// Ensure the app is opened and the login button is located before running tests
+		loginButton = await LandingPage.getloginButton();
+		appLogo = await LandingPage.getappLogo();
+		createAccountButton = await LandingPage.getcreateAccount();
+	});
 
+	//Check for Application logo
+	it("should check if the Application Logo is displayed", async () => {
+		// Assert that the login button is displayed
+		const isDisplayed = await appLogo.waitForDisplayed({ timeout: 5000 });
+		expect(isDisplayed).toBe(true);
+	});
 
-  it("should launch the app and check if the login button is displayed", async () => {
-    // Assert that the login button is displayed
-    const isDisplayed = await loginButton.waitForDisplayed({ timeout: 5000 });
-    console.log("Login button displayed:", isDisplayed);
-    expect(isDisplayed).toBe(true);
-  });
+	//Check for Create Account button
+	it("should check if the create account button is displayed", async () => {
+		// Assert that the login button is displayed
+		const isDisplayed = await createAccountButton.waitForDisplayed({
+			timeout: 5000,
+		});
+		expect(isDisplayed).toBe(true);
+	});
 
-  it("should click login button", async () => {
-    const loginButton = await LoginPage.getloginButton();
+	//Check for Login button
+	it("should check if the login button is displayed", async () => {
+		// Assert that the login button is displayed
+		const isDisplayed = await loginButton.waitForDisplayed({ timeout: 5000 });
+		expect(isDisplayed).toBe(true);
+	});
 
-    await loginButton.click();
-    console.log(await loginButton.getText());
-    console.log("Login button clicked");
-  });
+	//Check for Create Account button functionality
+	it("should click Create Account button", async () => {
+		// To click on login button
+		await createAccountButton.click();
+		await browser.back();
+	});
+
+	//Check for Login button functionality
+	it("should click Login button", async () => {
+		// To click on login button
+		await loginButton.click();
+		console.log("Login button clicked");
+	});
 });
-
-// import  {dummy}  from "../pageobjects/dummy.page"
-
-// describe("Dummy Test", () => {
-//     it("should load the dummy module", () => {
-//         dummy();
-//     });
-// });

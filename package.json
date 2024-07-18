@@ -16,6 +16,7 @@
     "wdio": "wdio run ./wdio.conf.ts"
   },
   "dependencies": {
-    "@wdio/junit-reporter": "^8.39.0"
+    "@wdio/junit-reporter": "^8.39.0",
+    "dotenv": "^16.4.5"
   }
 }
