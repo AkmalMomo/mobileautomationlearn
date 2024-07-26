@@ -34,8 +34,11 @@ export const config: Options.Testrunner = {
   // of the config file unless it's absolute.
   //
   specs:[
-    [ './test/specs/mims.spec.ts',
-      './test/specs/login.spec.ts']
+    [ 
+      './test/specs/mims.spec.ts',
+      './test/specs/login.spec.ts',
+      './test/specs/homepage.spec.ts',
+    ]
   ],
   // Patterns to exclude.
   exclude: [

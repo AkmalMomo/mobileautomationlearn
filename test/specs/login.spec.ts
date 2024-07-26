@@ -10,7 +10,8 @@ describe("Login to the app", () => {
 	let loginBtn: WebdriverIO.Element;
 	let forgotPwd: WebdriverIO.Element;
 	let tokenBtn: WebdriverIO.Element;
-	let userSignIn : WebdriverIO.Element;
+	let userSignIn: WebdriverIO.Element;
+	let wrgPwd: WebdriverIO.Element;
 
 	before(async () => {
 		// Assigning variables
@@ -23,6 +24,7 @@ describe("Login to the app", () => {
 		forgotPwd = await LoginPage.getForgotPwd();
 		tokenBtn = await LoginPage.getTokenButton();
 		userSignIn = await LoginPage.getUserSignIn();
+		wrgPwd = await LoginPage.getWrongPwd();
 	});
 
 	//Check for Login Field
@@ -67,9 +69,19 @@ describe("Login to the app", () => {
 		await LoginPage.clickUserSignIn();
 	});
 
-	//Check for able to fill in email and password
-	it("should be able to fill in email and password", async () => {
+	//Check fail login scenario
+	it("should not be able to login with incorrect credential", async () => {
+		await LoginPage.setEmailTextField('invalidmail@mail.to');
+		await LoginPage.setPasswordTextField('12345');
+		await LoginPage.clickLoginButton();
+		const isDisplayed = await wrgPwd.waitForDisplayed({ timeout: 5000 });
+		expect(isDisplayed).toBe(true);
+	});
+
+	//Check for success login scenario
+	it("should be able to login with correct credential", async () => {
 		await LoginPage.setEmailTextField(emailText);
 		await LoginPage.setPasswordTextField(pwdText);
+		await LoginPage.clickLoginButton();
 	});
 });

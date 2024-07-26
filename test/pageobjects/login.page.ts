@@ -87,6 +87,10 @@ class LoginPage {
         return await $(this.forgotPwd);
     }
 
+    async getWrongPwd(){
+        return await $(this.wrgPwd);
+    }
+
     /**
      * Click the Forgot Password link or button
      * @returns {Promise<void>}
