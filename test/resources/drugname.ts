@@ -7,7 +7,7 @@ export enum drugNames{
 export const drugNamesSelector={
 
     //Selector kinda weird here. Using Invalid Character? 
-    [drugNames.KEYTRUDA]: 'android=new UiSelector().className("android.view.ViewGroup").instance(23)',
-    [drugNames.VELSIPITY]:'android=new UiSelector().className("android.view.ViewGroup").instance(23)',
-    [drugNames["3TC"]]:'android=new UiSelector().className("android.view.ViewGroup").instance(23)'
+    [drugNames.KEYTRUDA]: 'android=new UiSelector().className("android.view.ViewGroup").instance(22)',
+    [drugNames.VELSIPITY]:'android=new UiSelector().className("android.view.ViewGroup").instance(22)',
+    [drugNames["3TC"]]:'android=new UiSelector().className("android.view.ViewGroup").instance(22)'
 }

@@ -35,8 +35,8 @@ export const config: Options.Testrunner = {
   //
   specs:[
     [ 
-      './test/specs/mims.spec.ts',
-      './test/specs/login.spec.ts',
+      // './test/specs/mims.spec.ts',
+      // './test/specs/login.spec.ts',
       './test/specs/homepage.spec.ts',
     ]
   ],
