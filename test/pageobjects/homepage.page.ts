@@ -10,6 +10,9 @@ class HomePage {
 	navInteractionIcon = 'android=new UiSelector().description(", Interactions")';
 	navPillIdIcon = 'android=new UiSelector().description(", Pill Identifier")';
 	navResourcesIcon = 'android= new UiSelector().description(", Resources")';
+	browseBrand = '~Brand, Brand Name, ';
+	browseActiveIngredient = '~Ingredient, Active Ingredient, '
+	browseTherapeuticClass= '~MIMS Class, Therapeutic Class, '
 
 	//Search Function for Homepage
 	async clickSearchIcon() {
@@ -45,8 +48,28 @@ class HomePage {
 	}
 
 	//Browse Brand
+	async clickBrowseBrand() {
+		const navBrowseBrand = await $(this.browseBrand);
+		const isDisplayed = await navBrowseBrand.waitForDisplayed({ timeout: 5000 });
+		expect(isDisplayed).toBe(true);
+		await navBrowseBrand.click();
+	}
 
-	//Browse Active
+	//Browse Active Ingredient
+	async clickActiveIngredient() {
+		const navActiveIngredient = await $(this.browseActiveIngredient);
+		const isDisplayed = await navActiveIngredient.waitForDisplayed({timeout: 5000});
+		expect(isDisplayed).toBe(true);
+		await navActiveIngredient.click();
+	}
+
+	//Browse Therapeutic Class
+	async clickTherapeuticClass(){
+		const navTherapeuticClass = await $(this.browseTherapeuticClass);
+		const isDisplayed = await navTherapeuticClass.waitForDisplayed({timeout:5000});
+		expect(isDisplayed).toBe(true);
+		await navTherapeuticClass.click();
+	}
 
 	//Drug Update
 
@@ -77,7 +100,7 @@ class HomePage {
 	}
 
 	//Pill Identifier Tab
-	async clickPillIdTab(){
+	async clickPillIdTab() {
 		const navPillIdIcon = await $(this.navPillIdIcon);
 		const isDisplayed = await navPillIdIcon.waitForDisplayed({ timeout: 5000 });
 		expect(isDisplayed).toBe(true);
@@ -85,7 +108,7 @@ class HomePage {
 	}
 
 	//Resources Tab
-	async clickResourcesTab(){
+	async clickResourcesTab() {
 		const navResourcesIcon = await $(this.navResourcesIcon);
 		const isDisplayed = await navResourcesIcon.waitForDisplayed({ timeout: 5000 });
 		expect(isDisplayed).toBe(true);

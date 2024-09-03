@@ -21,13 +21,14 @@ describe("Open eMIMS Plus Mobile App and go to Landing Page", () => {
 	});
 
 	//Check for Create Account button
-	it("should check if the create account button is displayed", async () => {
-		// Assert that the login button is displayed
-		const isDisplayed = await createAccountButton.waitForDisplayed({
-			timeout: 5000,
-		});
-		expect(isDisplayed).toBe(true);
-	});
+	//NOT APPLICABLE FOR ELITE
+	// it("should check if the create account button is displayed", async () => {
+	// 	// Assert that the login button is displayed
+	// 	const isDisplayed = await createAccountButton.waitForDisplayed({
+	// 		timeout: 5000,
+	// 	});
+	// 	expect(isDisplayed).toBe(true);
+	// });
 
 	//Check for Login button
 	it("should check if the login button is displayed", async () => {
@@ -37,11 +38,12 @@ describe("Open eMIMS Plus Mobile App and go to Landing Page", () => {
 	});
 
 	//Check for Create Account button functionality
-	it("should click Create Account button", async () => {
-		// To click on login button
-		await createAccountButton.click();
-		await browser.back();
-	});
+	//NOT APPLICABLE FOR ELITE
+	// it("should click Create Account button", async () => {
+	// 	// To click on login button
+	// 	await createAccountButton.click();
+	// 	await browser.back();
+	// });
 
 	//Check for Login button functionality
 	it("should click Login button", async () => {
