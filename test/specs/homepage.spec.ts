@@ -1,6 +1,6 @@
 import HomePage from "../pageobjects/homepage.page.ts";
 import sendAuthRequest from '../resources/services/service.ts'
-import { activeIngredient, brandNames, drugBrandNamesSelector, drugIngredientsSelector, drugNames, therapeuticClass, therapeuticClassSelector } from "../resources/drugname.ts";
+import { activeIngredient, brandNames, Company, companySelector, drugBrandNamesSelector, drugIngredientsSelector, drugNames, Indication, indicationSelector, therapeuticClass, therapeuticClassSelector } from "../resources/drugname.ts";
 import { drugNamesSelector } from "../resources/drugname.ts";
 import * as dotenv from "dotenv";
 dotenv.config();
@@ -134,6 +134,42 @@ describe("Homepage functionality test", () => {
 		const therapeuticClassElement = await $(randomTherapeuticClassSelector);
 		await therapeuticClassElement.waitForDisplayed({timeout:5000});
 		await therapeuticClassElement.click();
+		await HomePage.clickHomeTab();
+	});
+
+	//TC12: Browse Indication
+	it("should be able to browse indication",async()=>{
+		await HomePage.clickHomeTab();
+		await HomePage.clickIndication();
+		//Randomize. List can be update at resources/drugname.ts
+		const indicationClassArray = Object.values(Indication);
+		const randomIndex = Math.floor(Math.random()*indicationClassArray.length);
+		const randomIndication = indicationClassArray[randomIndex];
+		const randomIndicationSelector = indicationSelector[randomIndication];
+
+		//start of test case
+		await HomePage.setSearchField(randomIndication);
+		const indicationElement = await $(randomIndicationSelector);
+		await indicationElement.waitForDisplayed({timeout:5000});
+		await indicationElement.click();
+		await HomePage.clickHomeTab();
+	});
+
+	//TC13: Browse Company
+	it("should be able to browse company",async()=>{
+		await HomePage.clickHomeTab();
+		await HomePage.clickCompany();
+		//Randomize. List can be updated at resouces/drugname.ts
+		const companyArray= Object.values(Company);
+		const randomIndex = Math.floor(Math.random()*companyArray.length);
+		const randomCompany = companyArray[randomIndex];
+		const randomCompanySelector = companySelector[randomCompany];
+
+		//start of test case
+		await HomePage.setSearchField(randomCompany);
+		const companyElement = await $(randomCompanySelector);
+		await companyElement.waitForDisplayed({timeout:5000});
+		await companyElement.click();
 		await HomePage.clickHomeTab();
 	});
 

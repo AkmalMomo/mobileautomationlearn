@@ -13,6 +13,8 @@ class HomePage {
 	browseBrand = '~Brand, Brand Name, ';
 	browseActiveIngredient = '~Ingredient, Active Ingredient, '
 	browseTherapeuticClass= '~MIMS Class, Therapeutic Class, '
+	browseIndication = '~Action / Use, Indication, '
+	browseCompany ='~Company, Company, '
 
 	//Search Function for Homepage
 	async clickSearchIcon() {
@@ -69,6 +71,22 @@ class HomePage {
 		const isDisplayed = await navTherapeuticClass.waitForDisplayed({timeout:5000});
 		expect(isDisplayed).toBe(true);
 		await navTherapeuticClass.click();
+	}
+
+	//Browse Indication
+	async clickIndication(){
+		const navIndication = await $(this.browseIndication);
+		const isDisplayed = await navIndication.waitForDisplayed({timeout:5000});
+		expect(isDisplayed).toBe(true);
+		await navIndication.click();
+	}
+
+	//Browse Company
+	async clickCompany(){
+		const navCompany = await $(this.browseCompany);
+		const isDisplayed = await navCompany.waitForDisplayed({timeout:5000});
+		expect(isDisplayed).toBe(true);
+		await navCompany.click();
 	}
 
 	//Drug Update
