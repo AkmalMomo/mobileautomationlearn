@@ -1,8 +1,7 @@
 import type { Options } from '@wdio/types'
-
 import * as dotenv from "dotenv";
-
 dotenv.config();
+
 export const config: Options.Testrunner = {
     //
     // ====================
@@ -38,7 +37,9 @@ export const config: Options.Testrunner = {
     [ 
       // './test/specs/mims.spec.ts',
       // './test/specs/login.spec.ts',
-      './test/specs/homepage.spec.ts',
+      // './test/specs/homepage.spec.ts',
+      // './test/specs/interaction.spec.ts',
+      './test/specs/drtc.spec.ts',
     ]
     ],
     // Patterns to exclude.

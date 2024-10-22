@@ -17,7 +17,7 @@ describe("Homepage functionality test", () => {
 		console.log(baseUrl);
 	});
 
-	//Can be ignored later, this is for PoC for GET request to get token
+	//Health Check
 	it('should be able to get the request',async()=>{
 		try {
 			const result = await sendAuthRequest(baseUrl);
